@@ -1,11 +1,15 @@
 language: node_js
 node_js:
   - "stable"
+addons:
+  chrome: stable
 
 branches:
   only:
     - master
     - /^greenkeeper.*$/
+before_install:
+  - google-chrome-stable --headless --disable-gpu
 
 before_script:
   - npm install
