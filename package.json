@@ -3,7 +3,8 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "node server.js",
+    "start-local": "ng serve",
     "heroku-postbuild": "ng build --aot --prod",
     "build": "ng build",
     "test": "ng test --watch=false",
@@ -15,15 +16,16 @@
   "dependencies": {
     "@angular/animations": "~8.1.2",
     "@angular/cli": "~8.1.2",
-    "@angular/compiler-cli": "~8.1.2",
     "@angular/common": "~8.1.2",
     "@angular/compiler": "~8.1.2",
+    "@angular/compiler-cli": "~8.1.2",
     "@angular/core": "~8.1.2",
     "@angular/forms": "~8.1.2",
     "@angular/platform-browser": "~8.1.2",
     "@angular/platform-browser-dynamic": "~8.1.2",
     "@angular/router": "~8.1.2",
     "bootstrap": "^3.4.1",
+    "express": "^4.17.1",
     "rxjs": "~6.5.2",
     "tslib": "^1.9.0",
     "zone.js": "~0.9.1"
