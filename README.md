@@ -1,3 +1,6 @@
+[![Build](https://travis-ci.org/TangerEye/ebet2-angular.svg?branch=master)](https://travis-ci.org/TangerEye/ebet2-angular)
+[![codecov.io](https://codecov.io/github/TangerEye/ebet2-angular/coverage.svg?branch=master)](https://codecov.io/github/TangerEye/ebet2-angular?branch=master)
+
 # Ebet2Angular
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.1.2.
