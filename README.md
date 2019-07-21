@@ -1,5 +1,5 @@
 [![Build](https://travis-ci.org/TangerEye/ebet2-angular.svg?branch=master)](https://travis-ci.org/TangerEye/ebet2-angular)
-[![codecov.io](https://codecov.io/github/TangerEye/ebet2-angular/coverage.svg?branch=master)](https://codecov.io/github/TangerEye/ebet2-angular?branch=master)
+[![codecov.io](https://codecov.io/github/TangerEye/ebet2-angular/coverage.svg?branch=master)](https://codecov.io/github/TangerEye/ebet2-angular?branch=master) [![Greenkeeper badge](https://badges.greenkeeper.io/TangerEye/ebet2-angular.svg)](https://greenkeeper.io/)
 
 # Ebet2Angular
 
