@@ -17,3 +17,6 @@ before_script:
 script:
   - npm build
   - npm test
+
+after_success:
+  - codecov
