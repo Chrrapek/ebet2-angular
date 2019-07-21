@@ -8,7 +8,10 @@ branches:
     - master
     - "/^greenkeeper.*$/"
 before_install:
+  - npm install -g @angular/cli
   - google-chrome-stable --headless --disable-gpu
+install:
+  - npm install
 before_script:
   - npm install
 script:
@@ -20,3 +23,5 @@ deploy:
   provider: heroku
   api_key:
     secure: Vu+71n/3qrk6gk/ku1vyjb9vCs8PgkU+hKN3I+wSr8w3hKbg0AiIDMAmFXeZsX5cVv8F0yAh0SCB8szHURmha3enWhzG6qSHyw6ydheMDLpx30NnvpJVQ1myqVeNdD6XE6ynjkB4EBpDK1ZPJqO2QGOf+o+Mz2mzxfbrhkqEQHujxwbFPK2/xM+Q87DDJxfJaIjaKvVocpIckwZF8XZKo3t0ZtP00NX37S1P8VyJ9qHt2CJa5G3aW3l3WH0tHcGrqvxDYTr57MGl/jQXL8+yYkaS+YzUdyiE4O4OozuSm5p7t1DW4r52x8Ytw0pTKpQV2OaFigN/NNoNg7g2GKIO4gDDQJoj7xOjoT3GE90V3c6yrEPHd38Ah7BOTBPj7XNOHPl2OfompKA8MWvPZm5RzjjDhVmorW9nMcu3GulnN34LgS3z1HFR5HsLlZAXfZqux16fO1HHf6yokZOk3ckjs4up5bIi/7iqz5uqV66PqtKDEEFywUXAFqJnJDeTFMMVHnIhGIccxsFHj7UvMTyX+dmM7SUOdMyl3P7Kjnf7LrPeLQ77/HrLSJIcodCSwtu9swmWVgZajeUaq+kleUx+2n0Zro7BFCJnxqtBYPlcFVGjsYDv9y1brOHMEGHXJLHgw4G4iJt7WgcqAuEPSpdRL/dMka/4AjjqWKNAavECFW0=
+  on:
+    branch: master
