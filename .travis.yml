@@ -8,7 +8,6 @@ branches:
     - master
     - "/^greenkeeper.*$/"
 before_install:
-  - npm install -g @angular/cli
   - google-chrome-stable --headless --disable-gpu
 install:
   - npm install
