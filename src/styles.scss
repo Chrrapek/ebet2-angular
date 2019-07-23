@@ -4,6 +4,12 @@
   height: auto;
 }
 
-.centered {
+.eb-centered {
+  margin: 0 auto;
+}
+
+.eb-logo-absolute {
+  position: absolute;
+  top: 5rem;
   margin: auto;
 }

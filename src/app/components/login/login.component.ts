@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {UserService} from '../../../services/user.service';
+import {UserService} from '../../services/user.service';
 import {Router} from '@angular/router';
 import {Subscription} from 'rxjs';
 
@@ -9,7 +9,7 @@ import {Subscription} from 'rxjs';
     <div class="login-wrapper">
       <form (ngSubmit)="login()" class="login">
         <app-big-logo></app-big-logo>
-        <span class="spinner spinner-inverse centered" *ngIf="logging"></span>
+        <span class="spinner spinner-inverse eb-centered" *ngIf="logging"></span>
         <div *ngIf="!logging" class="login-group">
           <clr-input-container>
             <label class="clr-sr-only">Nazwa użytkownika</label>
