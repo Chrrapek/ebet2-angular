@@ -8,6 +8,7 @@
     "heroku-postbuild": "ng build --aot --prod",
     "build": "ng build",
     "test": "ng test --watch=false",
+    "test-local": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
     "codecov": "codecov"
