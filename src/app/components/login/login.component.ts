@@ -1,7 +1,8 @@
 import {Component, OnInit} from '@angular/core';
-import {UserService} from '../../services/user.service';
 import {Router} from '@angular/router';
 import {Subscription} from 'rxjs';
+import {UserModel} from '../../models/user.model';
+import {UserService} from '../../services/user.service';
 
 @Component({
   selector: 'app-login',
@@ -13,16 +14,12 @@ import {Subscription} from 'rxjs';
         <div *ngIf="!logging" class="login-group">
           <clr-input-container>
             <label class="clr-sr-only">Nazwa użytkownika</label>
-            <input type="text" name="username" clrInput placeholder="Nazwa użytkownika" [(ngModel)]="form.username"/>
+            <input type="text" name="username" clrInput placeholder="Nazwa użytkownika" [(ngModel)]="form.login"/>
           </clr-input-container>
           <clr-password-container>
             <label class="clr-sr-only">Hasło</label>
             <input type="password" name="password" clrPassword placeholder="Hasło" [(ngModel)]="form.password"/>
           </clr-password-container>
-          <clr-checkbox-wrapper>
-            <label>Zapamiętaj mnie</label>
-            <input type="checkbox" name="rememberMe" clrCheckbox [(ngModel)]="form.rememberMe"/>
-          </clr-checkbox-wrapper>
           <div class="error" [class.active]="error">
             Nieprawidłowy login lub hasło
           </div>
@@ -36,18 +33,13 @@ import {Subscription} from 'rxjs';
 })
 export class LoginComponent implements OnInit {
 
-  private form: {
-    username: string;
-    password: string;
-    rememberMe: boolean;
-  } = {
-    username: '',
-    password: '',
-    rememberMe: false
+  private form: UserModel = {
+    login: '',
+    password: ''
   };
 
-  private logging: boolean;
-  private error: boolean;
+  logging: boolean;
+  error: boolean;
 
   constructor(private userService: UserService, private router: Router) {
   }
@@ -58,15 +50,16 @@ export class LoginComponent implements OnInit {
   login(): Subscription {
     this.logging = true;
     this.error = false;
-    return this.userService.tryToLogin(this.form.username, this.form.password).subscribe(this.loginSuccess, this.loginFail);
+    return this.userService.tryToLogin(this.form).subscribe(this.loginSuccess, this.loginFail);
   }
 
-  private loginSuccess = (response: string) => {
+  loginSuccess = (response: string) => {
     sessionStorage.setItem('auth', response);
-    sessionStorage.setItem('username', this.form.username);
+    sessionStorage.setItem('username', this.form.login);
+    this.logging = false;
   };
 
-  private loginFail = () => {
+  loginFail = () => {
     this.logging = false;
     this.error = true;
   };

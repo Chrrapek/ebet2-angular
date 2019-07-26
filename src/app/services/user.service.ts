@@ -1,7 +1,8 @@
 import {HttpClient} from '@angular/common/http';
+import {Injectable} from '@angular/core';
 import {Observable} from 'rxjs';
 import {environment} from '../../environments/environment';
-import {Injectable} from '@angular/core';
+import {UserModel} from '../models/user.model';
 
 @Injectable({
   providedIn: 'root'
@@ -12,10 +13,10 @@ export class UserService {
   constructor(private http: HttpClient) {
   }
 
-  tryToLogin(username: string, password: string): Observable<string> {
+  tryToLogin(loginData: UserModel): Observable<string> {
     const body = {
-      username: username,
-      password: password
+      username: loginData.login,
+      password: loginData.password
     };
 
     const options: { responseType: 'text' } = {
