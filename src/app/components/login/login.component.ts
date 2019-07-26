@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component} from '@angular/core';
 import {Router} from '@angular/router';
 import {Subscription} from 'rxjs';
 import {UserModel} from '../../models/user.model';
@@ -31,7 +31,7 @@ import {UserService} from '../../services/user.service';
   `,
   styleUrls: ['./login.component.scss']
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent {
 
   private form: UserModel = {
     login: '',
@@ -42,9 +42,6 @@ export class LoginComponent implements OnInit {
   error: boolean;
 
   constructor(private userService: UserService, private router: Router) {
-  }
-
-  ngOnInit(): void {
   }
 
   login(): Subscription {
