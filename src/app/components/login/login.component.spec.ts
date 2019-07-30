@@ -52,6 +52,19 @@ describe('LoginComponent', () => {
     expect(app.login).toHaveBeenCalled();
   });
 
+  it('should change state on login call', () => {
+    // given
+    fixture.detectChanges();
+
+    // when
+    app.login();
+    fixture.detectChanges();
+
+    // then
+    expect(app.error).toBe(false);
+    expect(app.logging).toBe(true);
+  });
+
   it('should set auth in sessionStorage', () => {
     // given
     fixture.detectChanges();
