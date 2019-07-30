@@ -1,20 +1,41 @@
-import {BrowserModule} from '@angular/platform-browser';
+import {HttpClient, HttpClientModule} from '@angular/common/http';
 import {NgModule} from '@angular/core';
-
-import {AppRoutingModule} from './app-routing.module';
+import {FormsModule} from '@angular/forms';
+import {BrowserModule} from '@angular/platform-browser';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {RouterModule, Routes} from '@angular/router';
+import {ClarityModule, ClrCommonFormsModule, ClrFormsModule, ClrInputModule} from '@clr/angular';
 import {AppComponent} from './app.component';
-import {LoginComponentComponent} from './components/login-component/login-component.component';
+import {LoginComponent} from './components/login/login.component';
+import {BigLogoComponent} from './components/shared/big-logo/big-logo.component';
+import {UserService} from './services/user.service';
+
+export const routes: Routes = [
+  {path: '', component: LoginComponent},
+  // {path: 'register', component: RegisterComponent}
+];
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponentComponent
+    LoginComponent,
+    BigLogoComponent,
   ],
   imports: [
+    FormsModule,
+    RouterModule.forRoot(routes),
     BrowserModule,
-    AppRoutingModule
+    ClarityModule,
+    ClrFormsModule,
+    ClrCommonFormsModule,
+    ClrInputModule,
+    BrowserAnimationsModule,
+    FormsModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [UserService, HttpClient],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+
+}

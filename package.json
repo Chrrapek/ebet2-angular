@@ -8,6 +8,7 @@
     "heroku-postbuild": "ng build --aot --prod",
     "build": "ng build",
     "test": "ng test --watch=false",
+    "test-local": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
     "codecov": "codecov"
@@ -24,6 +25,10 @@
     "@angular/platform-browser": "~8.1.2",
     "@angular/platform-browser-dynamic": "~8.1.2",
     "@angular/router": "~8.1.2",
+    "@clr/angular": "^2.0.2",
+    "@clr/icons": "2.0.2",
+    "@clr/ui": "2.0.2",
+    "@webcomponents/custom-elements": "^1.0.0",
     "bootstrap": "^3.4.1",
     "express": "^4.17.1",
     "rxjs": "~6.5.2",
