@@ -1,7 +1,6 @@
 import {HttpClientTestingModule, HttpTestingController} from '@angular/common/http/testing';
 import {getTestBed, TestBed} from '@angular/core/testing';
 import {of} from 'rxjs';
-import {environment} from '../../environments/environment.prod';
 import {UserService} from './user.service';
 
 describe('UserService', () => {
@@ -9,7 +8,6 @@ describe('UserService', () => {
   let userService: UserService;
   const mockService = {tryToLogin: jasmine.createSpy('tryToLogin').and.returnValue(of('fakeConfirmation'))};
   let httpMock: HttpTestingController;
-  const apiUrl = environment.apiUrl;
 
   beforeEach(() => {
     TestBed.configureTestingModule({

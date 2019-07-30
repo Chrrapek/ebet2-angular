@@ -7,6 +7,7 @@ import {routes} from '../../app.module';
 import {BigLogoComponent} from '../shared/big-logo/big-logo.component';
 
 import {LoginComponent} from './login.component';
+import {By} from '@angular/platform-browser';
 
 describe('LoginComponent', () => {
   let fixture: ComponentFixture<LoginComponent>;
@@ -41,15 +42,14 @@ describe('LoginComponent', () => {
     spyOn(app, 'login');
     fixture.detectChanges();
     // when
-    const nativeElement = fixture.nativeElement;
-    const button = nativeElement.querySelector('button');
-    button.click();
+    const debugElement = fixture.debugElement;
+    const form = debugElement.query(By.css('form'));
+    form.triggerEventHandler('submit', null);
 
     fixture.detectChanges();
+
     // then
-    fixture.whenStable().then(() => {
-      expect(app.login).toHaveBeenCalled();
-    })
+    expect(app.login).toHaveBeenCalled();
   });
 
   it('should set auth in sessionStorage', () => {
@@ -74,5 +74,5 @@ describe('LoginComponent', () => {
     // then
     expect(app.error).toBe(true);
     expect(app.logging).toBe(false);
-  })
+  });
 });
