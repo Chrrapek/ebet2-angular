@@ -33,7 +33,7 @@ import {UserService} from '../../services/user.service';
 })
 export class LoginComponent {
 
-  private form: UserModel = {
+  form: UserModel = {
     login: '',
     password: ''
   };
