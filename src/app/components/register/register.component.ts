@@ -41,7 +41,7 @@ export class RegisterComponent {
   registering: boolean;
   error: boolean;
 
-  constructor(private userService: UserService, private router: Router) {
+  constructor(private userService: UserService, public router: Router) {
   }
 
   register(): Subscription {

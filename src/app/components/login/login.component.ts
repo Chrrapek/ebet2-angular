@@ -43,7 +43,7 @@ export class LoginComponent {
   logging: boolean;
   error: boolean;
 
-  constructor(private userService: UserService, private router: Router) {
+  constructor(private userService: UserService, public router: Router) {
   }
 
   login(): Subscription {
