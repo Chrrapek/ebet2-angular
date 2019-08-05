@@ -1,49 +1,46 @@
-import {HttpClientModule, HttpResponse} from '@angular/common/http';
 import {async, ComponentFixture, TestBed} from '@angular/core/testing';
-import {FormsModule} from '@angular/forms';
-import {RouterModule} from '@angular/router';
-import {ClrFormsModule, ClrInputModule} from '@clr/angular';
-import {routes} from '../../app.module';
-import {BigLogoComponent} from '../shared/big-logo/big-logo.component';
 
-import {LoginComponent} from './login.component';
+import {RegisterComponent} from './register.component';
 import {By} from '@angular/platform-browser';
-import {RegisterComponent} from '../register/register.component';
+import {HttpResponse} from '@angular/common/http';
 import {UserResponseModel} from '../../models/user-response.model';
+import {BigLogoComponent} from '../shared/big-logo/big-logo.component';
+import {FormsModule} from '@angular/forms';
+import {HttpClientTestingModule} from '@angular/common/http/testing';
+import {ClrFormsModule, ClrInputModule} from '@clr/angular';
+import {RouterModule} from '@angular/router';
+import {routes} from '../../app.module';
+import {LoginComponent} from '../login/login.component';
 
-describe('LoginComponent', () => {
-  let fixture: ComponentFixture<LoginComponent>;
-  let app: LoginComponent;
+describe('RegisterComponent', () => {
+  let app: RegisterComponent;
+  let fixture: ComponentFixture<RegisterComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [
-        LoginComponent,
-        BigLogoComponent,
-        RegisterComponent
-      ],
+      declarations: [RegisterComponent, BigLogoComponent, LoginComponent],
       imports: [
         FormsModule,
+        HttpClientTestingModule,
         ClrFormsModule,
         ClrInputModule,
-        HttpClientModule,
         RouterModule.forRoot(routes)
-      ],
+      ]
     })
       .compileComponents();
 
     // given
-    fixture = TestBed.createComponent(LoginComponent);
+    fixture = TestBed.createComponent(RegisterComponent);
     app = fixture.componentInstance;
   }));
 
-  it('should render the component', () => {
+  it('should create', () => {
     expect(app).toBeTruthy();
   });
 
   it('should call UserService method', () => {
     // given
-    spyOn(app, 'login');
+    spyOn(app, 'register');
     fixture.detectChanges();
     // when
     const debugElement = fixture.debugElement;
@@ -53,7 +50,7 @@ describe('LoginComponent', () => {
     fixture.detectChanges();
 
     // then
-    expect(app.login).toHaveBeenCalled();
+    expect(app.register).toHaveBeenCalled();
   });
 
   it('should change state on login call', () => {
@@ -61,19 +58,19 @@ describe('LoginComponent', () => {
     fixture.detectChanges();
 
     // when
-    app.login();
+    app.register();
     fixture.detectChanges();
 
     // then
     expect(app.error).toBe(false);
-    expect(app.logging).toBe(true);
+    expect(app.registering).toBe(true);
   });
 
   it('should set auth in sessionStorage', () => {
     // given
     fixture.detectChanges();
     // when
-    app.loginSuccess(new HttpResponse<UserResponseModel>({
+    app.registerSuccess(new HttpResponse<UserResponseModel>({
       body: {
         token: 'testAuth',
         username: 'testUser',
@@ -83,7 +80,8 @@ describe('LoginComponent', () => {
     fixture.detectChanges();
 
     // then
-    expect(app.logging).toBe(false);
+    expect(app.registering).toBe(false);
+    expect(sessionStorage.getItem('username')).toBe('testUser');
     expect(sessionStorage.getItem('auth')).toBe('testAuth');
   });
 
@@ -91,11 +89,12 @@ describe('LoginComponent', () => {
     // given
     fixture.detectChanges();
     // when
-    app.loginFail();
+    app.registerFail();
     fixture.detectChanges();
 
     // then
     expect(app.error).toBe(true);
-    expect(app.logging).toBe(false);
+    expect(app.registering).toBe(false);
   });
+
 });

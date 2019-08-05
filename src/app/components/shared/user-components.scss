@@ -1,0 +1,25 @@
+.login {
+  margin: auto;
+  width: 28rem;
+}
+
+.login-wrapper {
+  background: url("/../../../assets/prism.png") 0 0;
+}
+
+clr-icon {
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  top: 2rem;
+  transition: all 0.5s;
+  cursor: pointer;
+}
+
+.signup {
+  cursor: pointer;
+}
+
+clr-icon:hover {
+  color: #000088;
+}

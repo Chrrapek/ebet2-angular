@@ -9,10 +9,11 @@ import {AppComponent} from './app.component';
 import {LoginComponent} from './components/login/login.component';
 import {BigLogoComponent} from './components/shared/big-logo/big-logo.component';
 import {UserService} from './services/user.service';
+import {RegisterComponent} from './components/register/register.component';
 
 export const routes: Routes = [
   {path: '', component: LoginComponent},
-  // {path: 'register', component: RegisterComponent}
+  {path: 'register', component: RegisterComponent}
 ];
 
 @NgModule({
@@ -20,6 +21,7 @@ export const routes: Routes = [
     AppComponent,
     LoginComponent,
     BigLogoComponent,
+    RegisterComponent,
   ],
   imports: [
     FormsModule,
