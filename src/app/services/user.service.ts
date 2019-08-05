@@ -1,8 +1,9 @@
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpResponse} from '@angular/common/http';
 import {Injectable} from '@angular/core';
 import {Observable} from 'rxjs';
 import {environment} from '../../environments/environment';
-import {UserModel} from '../models/user.model';
+import {UserRequestModel} from '../models/user-request.model';
+import {UserResponseModel} from '../models/user-response.model';
 
 @Injectable({
   providedIn: 'root'
@@ -13,16 +14,21 @@ export class UserService {
   constructor(private http: HttpClient) {
   }
 
-  tryToLogin(loginData: UserModel): Observable<string> {
+  tryToLogin(loginData: UserRequestModel): Observable<HttpResponse<UserResponseModel>> {
     const body = {
       username: loginData.login,
       password: loginData.password
     };
 
-    const options: { responseType: 'text' } = {
-      responseType: 'text'
+    return this.http.post<UserResponseModel>(`${this.urlDomain}/api/user/login`, body, {observe: 'response'});
+  }
+
+  tryToRegister(registerData: UserRequestModel): Observable<HttpResponse<UserResponseModel>> {
+    const body = {
+      username: registerData.login,
+      password: registerData.password
     };
 
-    return this.http.post(`${this.urlDomain}/api/user/login`, body, options);
+    return this.http.post<UserResponseModel>(`${this.urlDomain}/api/user/register`, body, {observe: 'response'});
   }
 }

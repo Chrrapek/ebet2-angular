@@ -1,8 +1,10 @@
 import {Component} from '@angular/core';
 import {Router} from '@angular/router';
 import {Subscription} from 'rxjs';
-import {UserModel} from '../../models/user.model';
+import {UserRequestModel} from '../../models/user-request.model';
 import {UserService} from '../../services/user.service';
+import {UserResponseModel} from '../../models/user-response.model';
+import {HttpResponse} from '@angular/common/http';
 
 @Component({
   selector: 'app-login',
@@ -24,16 +26,16 @@ import {UserService} from '../../services/user.service';
             Nieprawidłowy login lub hasło
           </div>
           <button type="submit" class="btn btn-primary">ZALOGUJ</button>
-          <a href="javascript://" class="signup">Zarejestruj się</a>
+            <a class="signup" (click)="this.router.navigate(['/register'])">Zarejestruj się</a>
         </div>
       </form>
     </div>
   `,
-  styleUrls: ['./login.component.scss']
+  styleUrls: ['../shared/user-components.scss']
 })
 export class LoginComponent {
 
-  form: UserModel = {
+  form: UserRequestModel = {
     login: '',
     password: ''
   };
@@ -50,9 +52,9 @@ export class LoginComponent {
     return this.userService.tryToLogin(this.form).subscribe(this.loginSuccess, this.loginFail);
   }
 
-  loginSuccess = (response: string) => {
-    sessionStorage.setItem('auth', response);
-    sessionStorage.setItem('username', this.form.login);
+  loginSuccess = (response: HttpResponse<UserResponseModel>) => {
+    sessionStorage.setItem('auth', response.body.token);
+    sessionStorage.setItem('username', response.body.username);
     this.logging = false;
   };
 
