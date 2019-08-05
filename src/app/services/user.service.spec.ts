@@ -47,7 +47,9 @@ describe('UserService', () => {
     userService.tryToLogin({login: 'testLogin', password: 'testPassword'}).subscribe(res => {
       fakeResponse = res;
     });
-    expect(fakeResponse).toBe('fakeConfirmation');
+    expect(fakeResponse.body.token).toBe('testAuth');
+    expect(fakeResponse.body.username).toBe('testUsername');
+    expect(fakeResponse.body.userUUID).toBe('testUUID');
   });
 
   it('should make request for registration', () => {
