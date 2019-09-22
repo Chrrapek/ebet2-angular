@@ -10,10 +10,13 @@ import {LoginComponent} from './components/login/login.component';
 import {BigLogoComponent} from './components/shared/big-logo/big-logo.component';
 import {UserService} from './services/user.service';
 import {RegisterComponent} from './components/register/register.component';
+import {TopbarComponent} from './components/topbar/topbar.component';
+import {LeaguesModule} from './modules/leagues/leagues.module';
 
 export const routes: Routes = [
   {path: '', component: LoginComponent},
-  {path: 'register', component: RegisterComponent}
+  {path: 'register', component: RegisterComponent},
+  {path: 'leagues', loadChildren: () => LeaguesModule}
 ];
 
 @NgModule({
@@ -22,6 +25,7 @@ export const routes: Routes = [
     LoginComponent,
     BigLogoComponent,
     RegisterComponent,
+    TopbarComponent,
   ],
   imports: [
     FormsModule,
@@ -33,7 +37,8 @@ export const routes: Routes = [
     ClrInputModule,
     BrowserAnimationsModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    LeaguesModule
   ],
   providers: [UserService, HttpClient],
   bootstrap: [AppComponent]
