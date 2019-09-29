@@ -12,6 +12,7 @@ import {UserService} from './services/user.service';
 import {RegisterComponent} from './components/register/register.component';
 import {TopbarComponent} from './components/topbar/topbar.component';
 import {LeaguesModule} from './modules/leagues/leagues.module';
+import {LeagueComponent} from './components/league/league.component';
 
 export const routes: Routes = [
   {path: '', component: LoginComponent},
@@ -26,6 +27,7 @@ export const routes: Routes = [
     BigLogoComponent,
     RegisterComponent,
     TopbarComponent,
+    LeagueComponent,
   ],
   imports: [
     FormsModule,
