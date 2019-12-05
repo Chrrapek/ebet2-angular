@@ -30,7 +30,7 @@
     "@angular/router": "~8.2.7",
     "@clr/angular": "^2.0.2",
     "@clr/icons": "2.3.1",
-    "@clr/ui": "2.3.1",
+    "@clr/ui": "2.3.3",
     "@webcomponents/custom-elements": "^1.0.0",
     "bootstrap": "^4.3.1",
     "express": "^4.17.1",
