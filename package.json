@@ -42,7 +42,7 @@
   "devDependencies": {
     "@angular-devkit/build-angular": "~0.803.5",
     "@angular/language-service": "~8.2.7",
-    "@types/jasmine": "~3.5.0",
+    "@types/jasmine": "~3.5.8",
     "@types/jasminewd2": "~2.0.3",
     "@types/node": "~12.12.0",
     "codecov": "^3.5.0",
