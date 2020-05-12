@@ -32,7 +32,7 @@
     "@clr/icons": "2.3.1",
     "@clr/ui": "2.3.1",
     "@webcomponents/custom-elements": "^1.0.0",
-    "bootstrap": "^4.3.1",
+    "bootstrap": "^4.5.0",
     "express": "^4.17.1",
     "path": "^0.12.7",
     "rxjs": "~6.5.2",
